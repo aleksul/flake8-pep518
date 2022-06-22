@@ -1,0 +1,51 @@
+[tool.black]
+line-length = 100
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.flake8]
+max-line-length = 100
+
+[tool.mypy]
+no_implicit_optional = true
+check_untyped_defs = true
+warn_return_any = true
+warn_unused_ignores = true
+show_error_codes = true
+ignore_missing_imports = true
+exclude = "^tests/"
+
+[tool.poetry]
+name = "flake8-pep518"
+version = "0.1.0"
+description = "Flake8 plugin that allows specifying config in pyproject.toml."
+authors = ["aleksul <me@aleksul.space>"]
+license = "MIT"
+readme = "README.md"
+keywords = ["flake8", "pep518", "pyproject", "plugin", "config"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Framework :: Flake8",
+    "Environment :: Plugins",
+]
+packages = [{ include = "flake8_pep518" }]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+flake8 = "^4.0.1"
+tomli = { version = "^2.0.1", python = "<3.11" }
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+isort = "^5.10.1"
+mypy = "^0.961"
+pre-commit = "^2.19.0"
+
+[tool.poetry.plugins."flake8.extension"]
+"PRO" = "flake8_pep518.main:PyprojectExtension"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
