@@ -24,6 +24,7 @@ description = "Flake8 plugin that allows specifying config in pyproject.toml."
 authors = ["aleksul <me@aleksul.space>"]
 license = "MIT"
 readme = "README.md"
+homepage = "https://github.com/aleksul/flake8-pep518/"
 keywords = ["flake8", "pep518", "pyproject", "plugin", "config"]
 classifiers = [
     "Development Status :: 3 - Alpha",
